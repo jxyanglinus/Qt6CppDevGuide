@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>317</width>
-    <height>238</height>
+    <height>262</height>
    </rect>
   </property>
   <property name="font">
@@ -88,12 +88,12 @@
      <property name="font">
       <font>
        <pointsize>20</pointsize>
-       <bold>true</bold>
+       <bold>false</bold>
       </font>
      </property>
      <property name="plainText">
       <string>Qt 6 C++
-开发指南</string>
+开发指北</string>
      </property>
     </widget>
    </item>
@@ -165,5 +165,38 @@
  <resources>
   <include location="res.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnOK</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>158</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnExit</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>158</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
