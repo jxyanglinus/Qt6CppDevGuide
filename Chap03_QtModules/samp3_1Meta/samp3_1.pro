@@ -10,9 +10,11 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    tperson.cpp \
     widget.cpp
 
 HEADERS += \
+    tperson.h \
     widget.h
 
 FORMS += \
