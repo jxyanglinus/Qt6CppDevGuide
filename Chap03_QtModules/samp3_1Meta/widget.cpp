@@ -53,23 +53,22 @@ void Widget::do_spinChanged(int arg1) {
 
 
 void Widget::on_btnClassInfo_clicked() {
-    QObject *obj = boy;
-    const QMetaObject *meta = obj->metaObject();
+    const QMetaObject *meta = boy->metaObject();
     ui->textEdit->clear();
     ui->textEdit->appendPlainText(QString("Class Name: %1\n").arg(meta->className()));
-    ui->textEdit->appendPlainText("property");
+    ui->textEdit->appendPlainText("Property:");
     for (int i = meta->propertyOffset(); i < meta->propertyCount(); i++) {
-        const char* propName = meta->property(i).name();
-        QString propValue = obj->property(propName).toString();
-        QString str = QString("Property Name = %1，Value = %2").arg(propName).arg(propValue);
+        const char *propName = meta->property(i).name();
+        QString propValue = boy->property(propName).toString();
+        QString str = QString("Property Name: %1, Value: %2").arg(propName).arg(propValue);
         ui->textEdit->appendPlainText(str);
     }
     ui->textEdit->appendPlainText("");
     ui->textEdit->appendPlainText("classInfo");
-    for (int i = meta->classInfoOffset(); i < meta->classInfoCount(); ++i) {
+    for (int i = meta->classInfoOffset(); i < meta->classInfoCount(); i++) {
         QMetaClassInfo classInfo = meta->classInfo(i);
-        ui->textEdit->appendPlainText(
-            QString("Name = %1; Value = %2").arg(classInfo.name()).arg(classInfo.value()));
+        QString str = QString("Name = %1, Value = %2").arg(classInfo.name()).arg(classInfo.value());
+        ui->textEdit->appendPlainText(str);
     }
 }
 
